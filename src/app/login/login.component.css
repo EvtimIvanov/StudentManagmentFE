@@ -1,0 +1,17 @@
+form{
+    margin: 10rem auto;
+    display: flex;
+    flex-direction: column;
+    width:20rem;
+    border:1px solid grey;
+    align-items: center;
+    border-radius: 2rem;
+    background-color: rgb(240, 233, 233);
+}
+
+input {
+    margin:1rem;
+}
+span{
+    margin-top:1rem;
+}

@@ -1,0 +1,19 @@
+table,td,tr,th{
+    border:1px solid black;
+}
+
+form{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    width:10rem;
+    margin-top:2rem;
+    
+    
+}
+
+section{
+    
+    width:20rem;
+    margin-top:2rem;
+}

@@ -1,0 +1,11 @@
+#userInfo{
+    border:1px solid black;
+    width:10rem;
+}
+p{
+    border-bottom: 1px solid black;
+}
+section{
+    width:20rem;
+    align-self: center;
+}
