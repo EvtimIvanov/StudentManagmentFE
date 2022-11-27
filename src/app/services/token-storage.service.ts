@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import jwt_decode from 'jwt-decode';
+import { decodedToken } from '../models/decodedToken';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,7 @@ export class TokenStorageService {
   }
 
   getEmailFromToken(): string{
-    return atob(this.getToken()).split(":")[0];
+    return jwt_decode<decodedToken>(this.getToken()).email;
   }
 
 

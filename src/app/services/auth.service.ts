@@ -19,7 +19,7 @@ export class AuthService {
         'username': username,
         'password': password
       }).pipe(
-        map((res) => {console.log(res.token)})
+        map((res) => {this.tokenStorage.setToken(res.token)})
       );
     }
 

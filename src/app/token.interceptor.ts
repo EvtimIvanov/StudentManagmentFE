@@ -20,7 +20,7 @@ export class TokenInterceptor implements HttpInterceptor {
       const token = this.tokenStorageService.getToken();
 
       const newHeaders = request.headers.append(
-        'Authorization', 'Basic ' + token
+        'Authorization', 'Bearer ' + token
       );
 
       resultRequest = request.clone({

@@ -13,8 +13,8 @@ export class UserService {
 
   getRole():Observable<String>{
     
-    return this.http.get("http://localhost:8080/user/role/"
-                                  +this.token.getEmailFromToken(),
+    return this.http.get("http://localhost:8080/user/"
+                                  +this.token.getEmailFromToken()+"/role",
                                   {responseType: 'text'});
     
   }

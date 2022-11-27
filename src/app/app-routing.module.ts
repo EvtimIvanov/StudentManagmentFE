@@ -27,7 +27,8 @@ const routes: Routes = [
   {path:"home",component:DashboardComponent,canActivate: [AuthenticatedGuard]},
   {path:"page",component:CoursePageComponent,canActivate: [AuthenticatedGuard]},
   {path:"user",component:UserPageComponent,canActivate: [AuthenticatedGuard]},
-  {path:"**",redirectTo:"home"}
+  {path:"**",redirectTo:"/login"},
+  
 ];
 
 @NgModule({

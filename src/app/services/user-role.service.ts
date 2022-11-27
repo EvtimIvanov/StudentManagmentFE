@@ -11,11 +11,10 @@ export class UserRoleService {
   constructor(private http: HttpClient,private token:TokenStorageService) { }
 
 
-  getRole():Observable<String>{
-    
-    return this.http.get("http://localhost:8080/user/role/"
-                                  +this.token.getEmailFromToken(),
-                                  {responseType: 'text'});
+  getRole():Observable<any>{
+    return this.http.get("http://localhost:8080/user/"
+                                  +this.token.getEmailFromToken()+"/role",
+                                  {responseType: "text"});
     
   }
 
