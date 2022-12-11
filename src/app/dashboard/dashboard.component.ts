@@ -7,6 +7,8 @@ import { TokenStorageService } from '../services/token-storage.service';
 import { UserRoleService } from '../services/user-role.service';
 import { courseTeacherGrade } from '../models/courseTeacherGrade';
 import { Router } from '@angular/router';
+import { UserInfo } from '../models/userModel';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,11 +22,14 @@ export class DashboardComponent implements OnInit {
   role!: string;
   courseGrade: courseGrade[] = [];
   courseTeacherGrade: courseTeacherGrade[] = [];
+  user!: UserInfo;
 
 
   constructor(private studentService: StudentService,
               private userRoleService: UserRoleService,
               private courseService: CourseService,
+              private userService: UserService,
+              private tokenService: TokenStorageService,
               private router: Router) { }
 
    ngOnInit():void {
@@ -45,8 +50,10 @@ export class DashboardComponent implements OnInit {
     .subscribe((res:courseGrade[]) => {this.courseGrade = res})
 
     this.courseService.getAllCoursesTeacherGrade()
-      .subscribe((res:courseTeacherGrade[])=>this.courseTeacherGrade=res)
+      .subscribe((res:courseTeacherGrade[])=>
+      {this.courseTeacherGrade=res;console.log(this.courseTeacherGrade)})
 
+    this.userService.getUserInfo(this.tokenService.getEmailFromToken()).subscribe((res:UserInfo) => this.user=res)
   }
 
   async loadRole(){

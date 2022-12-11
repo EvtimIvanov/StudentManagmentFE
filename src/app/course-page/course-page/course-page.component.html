@@ -1,96 +1,109 @@
+<div class="topnav">
+    <span>Welcome | {{user.userName}}</span>
+</div>
 <section>
     <table>
-        <tr >
-            <td>Course name</td>
+        <tr>
+            <th>Course name</th>
             <td>{{ courseInfo.courseName }}</td>
         </tr>
         <tr>
-            <td>Teacher name</td>
+            <th>Teacher name</th>
             <td>{{ courseInfo.teacherName }}</td>
         </tr>
         <tr *ngIf="this.role==='Admin' || this.role ==='Teacher'">
-            <td>Average grade</td>
+            <th>Average grade</th>
             <td> {{ courseInfo.averageGradeOfCourse | averagePrefix }}</td>
         </tr>
-        <div >
-
-            <tr>
-                <td>
-                    Student name
-                </td>
-                <td *ngIf="this.role==='Admin' || this.role ==='Teacher'">
-                    Student grades
-                </td>
-            </tr>
-        <tr *ngFor="let student of students" >
-            <!-- <td *ngFor="let abe of student.value">
-              {{abe}}
-            </td> -->
-        <!-- <td *ngFor="let grade of student.value">
-            
-        </td> -->
-            
-            <td >
+        <!-- promeni -->
+        <tr *ngFor="let student of students">
+            <th>Student Name</th>
+            <td>
                 {{student.name}}
             </td>
-            <div *ngIf="this.role==='Admin' || this.role ==='Teacher'">
-                <td 
-                    *ngFor="let grade of student.grades">
-               
-               
-                {{grade |gradeToLetter}}
-                </td>
-            </div>
         </tr>
-    </div>
-
+        <!-- <div *ngIf="this.role==='Admin' || this.role ==='Teacher'"> -->
+        <tr *ngFor="let student of students">
+            <!-- <th *ngIf="this.role==='Admin' || this.role ==='Teacher'"> -->
+            <th>
+                Student grades
+            </th>
+            <td *ngFor="let grade of student.grades">
+                {{grade |gradeToLetter}}
+            </td>
+        </tr>
+        <!-- </div> -->
+        <!-- krai promeni -->
     </table>
 </section>
 
 <section *ngIf="this.role==='Admin' || this.role ==='Teacher'">
-    <span>Add student</span>
-    <form (ngSubmit)="addStudent()">
-        <!-- <input type="text" name="courseId" placeholder="Course id" [(ngModel)]="toAddStudentData.courseId"> -->
-        <label >Student id</label>
-        <input type="text"  name="studentId" placeholder="Student id" [(ngModel)]="toAddStudentData.studentId"> 
-        <input type="submit" value="Submit">
+    <table>
+        <tr>
+            <th>ADD STUDENT</th>
+            <th>ADD STUDENT GRADE</th>
+            <th *ngIf="this.role==='Admin'">ADD COURSE</th>
+        </tr>
+        <tr>
+            <td>
+                <section id="add-student" *ngIf="this.role==='Admin' || this.role ==='Teacher'">
+                    <!-- <span>ADD STUDENT</span> -->
+                    <form (ngSubmit)="addStudent()">
+                        <!-- <input type="text" name="courseId" placeholder="Course id" [(ngModel)]="toAddStudentData.courseId"> -->
+                        <label>STUDENT ID</label>
+                        <input type="text" name="studentId" placeholder="Student ID"
+                            [(ngModel)]="toAddStudentData.studentId">
+                        <!-- <input type="submit" value="Submit"> -->
 
-    </form>
-</section>
-
-<section *ngIf="this.role==='Admin' || this.role ==='Teacher'">
-    <span>Add grade to student</span>
-    <form (ngSubmit)="addGradeToStudent()">
-        <!-- <input type="text" name="courseId" 
+                    </form>
+                </section>
+            </td>
+            <td>
+                <section *ngIf="this.role==='Admin' || this.role ==='Teacher'">
+                    <!-- <span>ADD STUDENT GRADE</span> -->
+                    <form (ngSubmit)="addGradeToStudent()">
+                        <!-- <input type="text" name="courseId" 
         placeholder="Course id" 
         [(ngModel)]="addGradeToStudentData.courseId"> -->
-        <label >Student id</label>
-        <input type="text" name="studentId" 
-        placeholder="Student id" 
-        [(ngModel)]="addGradeToStudentData.studentId">
-        
-        <label >Student grade</label>
-        <input type="text" name="grade" 
-        placeholder="Grade" 
-        [(ngModel)]="addGradeToStudentData.grade"> 
+                        <label>STUDENT ID</label>
+                        <input type="text" name="studentId" placeholder="Student ID"
+                            [(ngModel)]="addGradeToStudentData.studentId">
+
+                        <label>STUDENT GRADE</label>
+                        <input type="text" name="grade" placeholder="Grade" [(ngModel)]="addGradeToStudentData.grade">
 
 
-        <span *ngIf="addGradeFail">Invalid data</span>
-        <input type="submit" value="Submit">
+                        <span *ngIf="addGradeFail">Invalid data</span>
+                        <!-- <input type="submit" value="Submit"> -->
 
-    </form>
-</section>
+                    </form>
+                </section>
+            </td>
+            <td *ngIf="this.role==='Admin'">
+                <section>
+                    <!-- <span>ADD COURSE</span> -->
+                    <form (ngSubmit)="createCourse()">
+                        <label>COURSE NAME</label>
+                        <input type="text" name="courseName" placeholder="Course name"
+                            [(ngModel)]="createCourseData.courseName">
 
-<section *ngIf="this.role==='Admin' ">
-    <form (ngSubmit)="createCourse()">
-        <label>Course name</label>
-        <input type="text" name="courseName" placeholder="Course name" [(ngModel)]="createCourseData.courseName">
+                        <label>TOTAL HOURS</label>
+                        <input type="text" name="totalHours" placeholder="Total Hours"
+                            [(ngModel)]="createCourseData.totalHours">
 
-        <label>Total hours</label>
-        <input type="text" name="totalHours" placeholder="Course total hours" [(ngModel)]="createCourseData.totalHours">
-
-        <input type="submit" value="Add course">
-    </form>
+                        <!-- <input type="submit" value="Add course"> -->
+                    </form>
+                </section>
+            </td>
+        </tr>
+        <tfoot>
+            <tr>
+                <td><input type="submit" value="SUBMIT" class="submit-button"></td>
+                <td><input type="submit" value="SUBMIT" class="submit-button"></td>
+                <td *ngIf="this.role==='Admin'"><input type="submit" value="SUBMIT" class="submit-button"></td>
+            </tr>
+        </tfoot>
+    </table>
 </section>
 
 <section *ngIf="this.role==='Admin' ">

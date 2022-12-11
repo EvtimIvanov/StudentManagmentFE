@@ -32,12 +32,12 @@ export class CourseService {
 
   addStudentToCourse(courseId: number, studentId: number):void {
   
-    this.http.post("http://localhost:8080/courses/addStudentToCourse",{
+    this.http.post(`http://localhost:8080/courses/${courseId}/addStudent/${studentId}`,{
       studentId: studentId,
       courseId: courseId
     },{
       observe: 'response'
-    }).subscribe()
+    }).subscribe((data) => location.reload())
   }
 
   addGradeToStudent(addGradeToStudentData: addGradeToStudentData): Observable<addGradeToStudentData> {

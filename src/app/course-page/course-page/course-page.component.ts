@@ -8,6 +8,8 @@ import { courseInfo, studentsWithGrades } from 'src/app/models/courseInfo';
 import { CourseService } from 'src/app/services/course.service';
 import { UserRoleService } from 'src/app/services/user-role.service';
 import { UserService } from 'src/app/services/user.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { UserInfo } from 'src/app/models/userModel';
 
 @Component({
   selector: 'app-course-page',
@@ -17,7 +19,8 @@ import { UserService } from 'src/app/services/user.service';
 export class CoursePageComponent implements OnInit {
 
   course?: string ;
-  courseInfo!: courseInfo
+  courseInfo!: courseInfo;
+  user!: UserInfo;
   
   students: studentsWithGrades[]=[];
   role!: string;
@@ -44,6 +47,7 @@ export class CoursePageComponent implements OnInit {
   constructor(public route: ActivatedRoute,
               private courseService: CourseService,
               private userService: UserService,
+              private tokenService: TokenStorageService
               ) { }
 
   ngOnInit(): void {
@@ -55,6 +59,8 @@ export class CoursePageComponent implements OnInit {
       this.students = this.courseInfo.studentsWithGrades;
       
     })
+
+    this.userService.getUserInfo(this.tokenService.getEmailFromToken()).subscribe((res:UserInfo) => this.user=res)
 
   }
 

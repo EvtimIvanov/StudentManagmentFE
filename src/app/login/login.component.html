@@ -1,16 +1,18 @@
+<div id="login-div">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
 <p class="error" *ngIf="invalidCredentials">
   Invalid credentials! Try again!
 </p>
 
 <form (ngSubmit)="doLogin()">
-<span>Login</span>
-<input type="text" name="username" placeholder="Username" [(ngModel)]="data.username" />
-<input type="password" name="password" placeholder="Password" [(ngModel)]="data.password" /> 
+  <span>Login</span>
+  <input type="text" name="username" placeholder="Username" [(ngModel)]="data.username" />
+  <input type="password" name="password" placeholder="Password" [(ngModel)]="data.password" />
 
-  <input type="submit" value="Submit">
+  <input type="submit" value="SUBMIT" class="submit-button">
 
 </form>
-
+</div>
 <!-- <form [FormGroup]="loginForm" (ngSubmit)="doLogin()">
 
   <input formControlName="username" type="username" id="username" placeholder="Enter your username">
