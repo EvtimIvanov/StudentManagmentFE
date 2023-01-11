@@ -69,24 +69,36 @@
       </tr>
     </tbody>
   </table>
-  <section id="change-role">
-    <section id="change-to-student">
-      <table>
-        <input id="student-name" placeholder="Student name">
-        <input id="student-age" placeholder="Student age">
-        <input id="student-email" placeholder="User email">
-        <button type="submit" (click)="changeToStudent()" id="change-role-on-student">Change Role to student</button>
-      </table>
-    </section>
-    <section id="change-to-teacher">
-      <table>
-        <input id="teacher-name" placeholder="Teacher name">
-        <input id="teacher-degree" placeholder="Teacher degree">
-        <input id="teacher-email" placeholder="User email">
-        <button type="submit" (click)="changeToTeacher()" id="change-role-on-teacher">Change Role to teacher</button>
-      </table>
-    </section>
-  </section>
+  <table id="change-role">
+    <thead>
+      <tr>
+        <th>Add Student Role</th>
+        <th>Add Teacher Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input id="student-name" placeholder="Student name">
+          <input id="student-age" placeholder="Student age">
+          <input id="student-email" placeholder="User email">
+          <!-- <button class="submit-button" type="submit" (click)="changeToStudent()">Change Role to student</button> -->
+        </td>
+        <td>
+          <input id="teacher-name" placeholder="Teacher name">
+          <input id="teacher-degree" placeholder="Teacher degree">
+          <input id="teacher-email" placeholder="User email">
+          <!-- <button class="submit-button" type="submit" (click)="changeToTeacher()">Change Role to teacher</button> -->
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td><button class="submit-button" type="submit" (click)="changeToStudent()">SUBMIT</button></td>
+        <td><button class="submit-button" type="submit" (click)="changeToTeacher()">SUBMIT</button></td>
+      </tr>
+    </tfoot>
+  </table>
 
 
 </section>

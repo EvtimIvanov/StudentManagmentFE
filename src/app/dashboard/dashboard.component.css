@@ -20,7 +20,7 @@ td {
     text-align: center;
 }
 
-th {
+th, tfoot {
     color: white;
     font-weight: bolder;
     font-family: "Audiowide", sans-serif;
@@ -81,7 +81,39 @@ table {
     background-color: #B6D0E2;
     border-collapse: collapse;
 }
+
+.submit-button {
+    background: #7393B3;
+    border-radius: 10px;
+    width: 7rem;
+    color: white;
+    font-weight: 500;
+    font-size: small;
+    font-family: system-ui;
+}
+
+input:hover{
+    border-color: black;
+}
+
+.submit-button:hover{
+    border-color: black;
+    background-color: #5982ab;
+}
+
+input {
+    margin: 0.5rem;
+    border: 3px solid #333;
+    border-radius: 3px;
+    padding: 4px;
+    /* width: 100%; */
+}
+
 #change-role{
+    margin-top: 2rem;
+}
+
+/* #change-role{
     width: 50rem;
     height: 30rem;
     background-color:#B6D0E2;
@@ -93,4 +125,4 @@ table {
     height:20rem;
     width:30rem;
     background-color: red;
-}
+} */
