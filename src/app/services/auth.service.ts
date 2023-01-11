@@ -33,5 +33,9 @@ export class AuthService {
         "password" : password
       });
      }
+
+     logout() {
+        localStorage.clear();
+     }
    
 }

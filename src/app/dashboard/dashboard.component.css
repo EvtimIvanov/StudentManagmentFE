@@ -112,6 +112,11 @@ input {
 #change-role{
     margin-top: 2rem;
 }
+#logout-btn{
+    height: 2rem;
+    margin-top:0.5rem;
+    align-self: flex-end;
+}
 
 /* #change-role{
     width: 50rem;

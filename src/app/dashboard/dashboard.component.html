@@ -1,5 +1,6 @@
 <div class="topnav">
   <span>Welcome | {{user.userName}}</span>
+  <button id="logout-btn" (click)="logout()">Logout</button>
 </div>
 <section *ngIf="this.role==='Student'">
   <table>

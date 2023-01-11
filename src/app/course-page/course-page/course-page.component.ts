@@ -10,6 +10,7 @@ import { UserRoleService } from 'src/app/services/user-role.service';
 import { UserService } from 'src/app/services/user.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { UserInfo } from 'src/app/models/userModel';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-course-page',
@@ -47,7 +48,8 @@ export class CoursePageComponent implements OnInit {
   constructor(public route: ActivatedRoute,
               private courseService: CourseService,
               private userService: UserService,
-              private tokenService: TokenStorageService
+              private tokenService: TokenStorageService,
+              private authService: AuthService
               ) { }
 
   ngOnInit(): void {
@@ -88,7 +90,9 @@ export class CoursePageComponent implements OnInit {
       
   }
 
-  removeTeacher(){
-
+  logout() {
+    this.authService.logout();
+    location.reload()
   }
+
 }

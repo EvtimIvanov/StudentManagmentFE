@@ -1,5 +1,7 @@
 <div class="topnav">
     <span>Welcome | {{user.userName}}</span>
+  <button id="logout-btn" (click)="logout()">Logout</button>
+
 </div>
 <section>
     <table>
@@ -87,8 +89,4 @@
             </tr>
         </tfoot>
     </table>
-</section>
-
-<section *ngIf="this.role==='Admin' ">
-    <button (click)="removeTeacher()">Remove teacher</button>
 </section>

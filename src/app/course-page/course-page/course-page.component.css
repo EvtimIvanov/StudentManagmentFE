@@ -110,10 +110,13 @@ section span {
     padding: 6px;
 }
 
-button {
-    visibility: hidden;
-}
 
 td section{
     margin: 40px;
+}
+#logout-btn{
+    height: 2rem;
+    margin-top:0.5rem;
+    align-self: flex-end;
+    background-color: white;
 }

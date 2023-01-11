@@ -12,6 +12,7 @@ import { UserInfo } from '../models/userModel';
 import { UserService } from '../services/user.service';
 import { Student } from '../models/student';
 import { createCourseData } from '../models/createCourseData';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -38,6 +39,7 @@ export class DashboardComponent implements OnInit {
               private courseService: CourseService,
               private userService: UserService,
               private tokenService: TokenStorageService,
+              private authService: AuthService,
               private router: Router) { }
 
    ngOnInit():void {
@@ -96,6 +98,11 @@ export class DashboardComponent implements OnInit {
   createCourse(){
     console.log(this.createCourseData.courseName)
     this.courseService.createCourse(this.createCourseData).subscribe((data)=>{window.location.reload()})
+  }
+
+  logout() {
+    this.authService.logout();
+    location.reload()
   }
 
 }
