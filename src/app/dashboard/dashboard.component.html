@@ -37,7 +37,6 @@
     </thead>
     <tbody>
       <tr *ngFor="let courseGrade of courseGrade">
-        <!-- <td (click)="sendToCourse($event)">{{ courseGrade.courseName }}</td> -->
         <td><a routerLink="/course/{{courseGrade.courseName}}">{{ courseGrade.courseName }}</a></td>
         <td>{{ courseGrade.averageGrade }}</td>
 
@@ -70,5 +69,24 @@
       </tr>
     </tbody>
   </table>
+  <section id="change-role">
+    <section id="change-to-student">
+      <table>
+        <input id="student-name" placeholder="Student name">
+        <input id="student-age" placeholder="Student age">
+        <input id="student-email" placeholder="User email">
+        <button type="submit" (click)="changeToStudent()" id="change-role-on-student">Change Role to student</button>
+      </table>
+    </section>
+    <section id="change-to-teacher">
+      <table>
+        <input id="teacher-name" placeholder="Teacher name">
+        <input id="teacher-degree" placeholder="Teacher degree">
+        <input id="teacher-email" placeholder="User email">
+        <button type="submit" (click)="changeToTeacher()" id="change-role-on-teacher">Change Role to teacher</button>
+      </table>
+    </section>
+  </section>
+
 
 </section>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { courseTeacher } from '../models/courseTeacher';
+import { Teacher } from '../models/teacher';
 import { courseGrade } from '../models/courseAverageGrade';
 import { CourseService } from '../services/course.service';
 import { StudentService } from '../services/student.service';
@@ -9,6 +10,7 @@ import { courseTeacherGrade } from '../models/courseTeacherGrade';
 import { Router } from '@angular/router';
 import { UserInfo } from '../models/userModel';
 import { UserService } from '../services/user.service';
+import { Student } from '../models/student';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,8 +25,6 @@ export class DashboardComponent implements OnInit {
   courseGrade: courseGrade[] = [];
   courseTeacherGrade: courseTeacherGrade[] = [];
   user!: UserInfo;
-
-
   constructor(private studentService: StudentService,
               private userRoleService: UserRoleService,
               private courseService: CourseService,
@@ -64,8 +64,27 @@ export class DashboardComponent implements OnInit {
   sendToCourse(event: Event){
     let courseName = (event.target as HTMLTableColElement).innerText
     
-    // pageName = (event.target as HTMLTableColElement).innerText
-    // this.router.navigate(['page'],{state:{pageName: courseName}})
+  }
+  changeToStudent() {
+    
+    let name = (document.getElementById("student-name") as HTMLInputElement).value
+    let studentEmail = (document.getElementById("student-email") as HTMLInputElement).value
+    let age = parseInt((document.getElementById("student-age") as HTMLInputElement).value)
+    this.userService.changeToStudent(studentEmail, name, age).subscribe(
+      (res)=>{}
+    )
+
+  }
+
+  changeToTeacher() {
+    let name = (document.getElementById("teacher-name") as HTMLInputElement).value
+    let teacherEmail = (document.getElementById("teacher-email") as HTMLInputElement).value
+    let degree = (document.getElementById("teacher-degree") as HTMLInputElement).value
+    this.userService.changeToTeacher(teacherEmail, name, degree).subscribe(
+      (res)=>{}
+    )
   }
 
 }
+
+

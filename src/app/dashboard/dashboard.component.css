@@ -81,3 +81,16 @@ table {
     background-color: #B6D0E2;
     border-collapse: collapse;
 }
+#change-role{
+    width: 50rem;
+    height: 30rem;
+    background-color:#B6D0E2;
+    border:1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+#change-to-student, #change-to-teacher {
+    height:20rem;
+    width:30rem;
+    background-color: red;
+}
