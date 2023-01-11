@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { UserInfo } from '../models/userModel';
 import { UserService } from '../services/user.service';
 import { Student } from '../models/student';
+import { createCourseData } from '../models/createCourseData';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,6 +26,13 @@ export class DashboardComponent implements OnInit {
   courseGrade: courseGrade[] = [];
   courseTeacherGrade: courseTeacherGrade[] = [];
   user!: UserInfo;
+  createCourseData:createCourseData={
+    courseId:0,
+    courseName:'',
+    totalHours:0,
+    teacherId:0
+
+  }
   constructor(private studentService: StudentService,
               private userRoleService: UserRoleService,
               private courseService: CourseService,
@@ -83,6 +91,11 @@ export class DashboardComponent implements OnInit {
     this.userService.changeToTeacher(teacherEmail, name, degree).subscribe(
       (res)=>{}
     )
+  }
+
+  createCourse(){
+    console.log(this.createCourseData.courseName)
+    this.courseService.createCourse(this.createCourseData).subscribe((data)=>{window.location.reload()})
   }
 
 }

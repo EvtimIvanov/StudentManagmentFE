@@ -40,8 +40,8 @@ export class CoursePageComponent implements OnInit {
   createCourseData:createCourseData={
     courseId:0,
     courseName:'',
-    totalHours:0
-
+    totalHours:0,
+    teacherId:0
   }
 
   constructor(public route: ActivatedRoute,
@@ -88,11 +88,6 @@ export class CoursePageComponent implements OnInit {
       
   }
 
-  createCourse(){
-    this.createCourseData.courseId = this.courseInfo.id;
-    console.log(this.createCourseData.courseName)
-    this.courseService.createCourse(this.createCourseData).subscribe((data)=>{window.location.reload()})
-  }
   removeTeacher(){
 
   }

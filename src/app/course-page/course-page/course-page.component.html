@@ -42,7 +42,6 @@
         <tr>
             <th>ADD STUDENT</th>
             <th>ADD STUDENT GRADE</th>
-            <th *ngIf="this.role==='Admin'">ADD COURSE</th>
         </tr>
         <tr>
             <td>
@@ -79,28 +78,12 @@
                     </form>
                 </section>
             </td>
-            <td *ngIf="this.role==='Admin'">
-                <section>
-                    <!-- <span>ADD COURSE</span> -->
-                    <form (ngSubmit)="createCourse()">
-                        <label>COURSE NAME</label>
-                        <input type="text" name="courseName" placeholder="Course name"
-                            [(ngModel)]="createCourseData.courseName">
-
-                        <label>TOTAL HOURS</label>
-                        <input type="text" name="totalHours" placeholder="Total Hours"
-                            [(ngModel)]="createCourseData.totalHours">
-
-                        <!-- <input type="submit" value="Add course"> -->
-                    </form>
-                </section>
-            </td>
         </tr>
         <tfoot>
             <tr>
                 <td><input type="submit" value="SUBMIT" class="submit-button"></td>
                 <td><input type="submit" value="SUBMIT" class="submit-button"></td>
-                <td *ngIf="this.role==='Admin'"><input type="submit" value="SUBMIT" class="submit-button"></td>
+                
             </tr>
         </tfoot>
     </table>

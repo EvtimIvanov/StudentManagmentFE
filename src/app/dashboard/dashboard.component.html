@@ -74,6 +74,7 @@
       <tr>
         <th>Add Student Role</th>
         <th>Add Teacher Role</th>
+        <th>Add new course</th>
       </tr>
     </thead>
     <tbody>
@@ -90,12 +91,33 @@
           <input id="teacher-email" placeholder="User email">
           <!-- <button class="submit-button" type="submit" (click)="changeToTeacher()">Change Role to teacher</button> -->
         </td>
+        <td *ngIf="this.role==='Admin'">
+          <section>
+              <!-- <span>ADD COURSE</span> -->
+              <form >
+                  <label>COURSE NAME</label>
+                  <input type="text" name="courseName" placeholder="Course name"
+                      [(ngModel)]="createCourseData.courseName">
+
+                  <label>HOURS</label>
+                  <input type="text" name="totalHours" placeholder="Total Hours"
+                      [(ngModel)]="createCourseData.totalHours">
+
+                  <label>TeacherId</label>
+                    <input type="text" name="teacherId" placeholder="Teacher id"
+                      [(ngModel)]="createCourseData.teacherId">
+
+                  <!-- <input type="submit" value="Add course"> -->
+              </form>
+          </section>
+      </td>
       </tr>
     </tbody>
     <tfoot>
       <tr>
         <td><button class="submit-button" type="submit" (click)="changeToStudent()">SUBMIT</button></td>
         <td><button class="submit-button" type="submit" (click)="changeToTeacher()">SUBMIT</button></td>
+        <td *ngIf="this.role==='Admin'"><input type="submit" value="SUBMIT" class="submit-button" (click)="createCourse()"></td>
       </tr>
     </tfoot>
   </table>

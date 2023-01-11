@@ -50,14 +50,15 @@ export class CourseService {
     
   }
   createCourse(createCourseData:createCourseData){
-    const courseId = createCourseData.courseId;
     const courseName = createCourseData.courseName;
     const totalHours = createCourseData.totalHours;
+    const teacherId = createCourseData.teacherId;
     console.log("call");
     return this.http.post("http://localhost:8080/courses",
-    {courseId,
+    {
       courseName,
-      totalHours
+      totalHours,
+      teacherId
     },{
       observe: 'response'
     })
