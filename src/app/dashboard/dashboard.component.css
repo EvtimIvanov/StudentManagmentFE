@@ -112,22 +112,10 @@ input {
 #change-role{
     margin-top: 2rem;
 }
+
 #logout-btn{
     height: 2rem;
     margin-top:0.5rem;
     align-self: flex-end;
+    margin-left: auto;
 }
-
-/* #change-role{
-    width: 50rem;
-    height: 30rem;
-    background-color:#B6D0E2;
-    border:1px solid black;
-    display: flex;
-    flex-direction: row;
-}
-#change-to-student, #change-to-teacher {
-    height:20rem;
-    width:30rem;
-    background-color: red;
-} */
